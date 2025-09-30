@@ -1,0 +1,45 @@
+body { margin: 0; font-family: Arial, sans-serif; }
+
+/* Thanh trên cùng */
+.top-bar { background: #2e2e2e; color: #ccc; font-size: 14px; display: flex; justify-content: space-between; padding: 5px 50px; align-items: center; }
+.top-bar .hotline { color: #9ad1f5; }
+.top-bar a { color: #ccc; text-decoration: none; margin-left: 20px; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+.top-bar a:hover { color: #fff; }
+
+/* Header chính */
+.header { display: flex; align-items: center; justify-content: space-between; padding: 15px 50px; }
+.logo img { height: 40px; }
+
+/* Menu */
+.menu { display: flex; gap: 30px; align-items: center; }
+.menu a { text-decoration: none; color: #333; font-weight: 500; position: relative; font-family: Arial, Helvetica, sans-serif; font-size: small;}
+
+/* Label Hot */
+.menu a .hot { background: #b91c1c; color: white; font-size: 11px; padding: 1px 4px; border-radius: 2px; position: absolute; top: -12px; right: -20px; }
+
+/* Icon */
+.icons { display: flex; gap: 10px; }
+.icons button { background: #f3f3f3; border: none; padding: 8px; border-radius: 4px; cursor: pointer; }
+.icons button:hover { background: #ddd; }
+/* Breadcrumb */
+.breadcrumb {font-size:14px; color:#333; padding:10px 20px; background:#f9f9f9;}
+.breadcrumb a {text-decoration:none; color:#222; font-weight:500;}
+.breadcrumb a:hover {color:#c00;}
+.breadcrumb span {color:#555;}
+/* Footer */
+.footer{background:#111;color:#ddd;font-family:'Roboto',sans-serif;padding:30px 20px}
+.footer-container{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:auto}
+.footer-col h2,.footer-col h3{color:#fff;margin-bottom:15px}
+.footer-col ul{list-style:none;padding:0}
+.footer-col ul li{margin:6px 0}
+.footer-col ul li a{color:#bbb;text-decoration:none;font-size:14px}
+.footer-col ul li a:hover{color:#fff}
+.footer-col p{font-size:14px;margin:5px 0}
+.subscribe{display:flex;margin-top:10px}
+.subscribe input{flex:1;padding:8px;border:none;border-radius:3px 0 0 3px}
+.subscribe button{padding:8px 12px;border:none;background:#c00;color:#fff;cursor:pointer;border-radius:0 3px 3px 0}
+.map{width:100%;max-width:220px;margin:10px 0}
+.social a img{width:28px;margin-right:10px;filter:brightness(0) invert(1);transition:.3s}
+.social a img:hover{transform:scale(1.1)}
+.footer-bottom{text-align:center;border-top:1px solid #333;margin-top:20px;padding-top:15px;font-size:13px;color:#aaa}
+.footer-bottom .highlight{color:#f33;margin-top:8px}
