@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Header 4Men</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Thanh trên cùng -->
+  <div class="top-bar">
+    <div>
+      ☎ Hotline: <span class="hotline">0868.444.644</span>
+    </div>
+    <div>
+      <a href="#">Cách chọn Size</a>
+      <a href="intro.html">Giới thiệu</a>
+    </div>
+  </div>
+
+  <!-- Header chính -->
+  <div class="header">
+    <!-- Logo -->
+   <div class="logo">
+  <a href="index.html">
+    <img src="https://4menshop.com/images/logo.png" alt="4Men Logo">
+  </a>
+</div>
+
+     <!-- Menu điều hướng -->
+    <nav class="menu">
+      <a href="product.html">SẢN PHẨM <span class="hot">Hot</span></a>
+      <div class="dropdown">
+      <a href="men.html">GIÀY NAM</a>
+      <div class="dropdown-content">
+        <a href="#">Chạy bộ</a>
+        <a href="#">Đá bóng</a>
+        <a href="#">Bóng rổ</a>
+        <a href="#">Gym</a>
+        <a href="#">Trượt ván</a>
+      </div>
+    </div>
+      <div class="dropdown">
+      <a href="women.html">GIÀY NỮ</a>
+      <div class="dropdown-content">
+        <a href="#">Chạy bộ</a>
+        <a href="#">Đá bóng</a>
+        <a href="#">Bóng rổ</a>
+        <a href="#">Gym</a>
+        <a href="#">Trượt ván</a>
+      </div>
+    </div>
+    <a href="item.html">PHỤ KIỆN</a>
+    <a href="new.html">TIN TỨC <span class="hot">Hot</span></a>
+    </nav>
+
+    <!-- Icon -->
+    <div class="icons">
+      <button>🔍</button>
+      <button  onclick="location.href='cart.html'">🛒</button>
+      <button onclick="location.href='login.html'">👤</button>
+    </div>
+  </div>
+  <!-- Breadcrumb -->
+<nav class="breadcrumb">
+  <a href="index.html">Thời trang nam</a> /
+  <span>Giày nam</span>
+</nav>
+<div class="sort-bar">
+  <h2>GIÀY NAM MỚI NHẤT</h2>
+  <div class="sort-options">
+    <label for="sort-select">Sắp xếp:</label>
+    <select id="sort-select">
+      <option value="default">Mặc định</option>
+      <option value="newest">Mới nhất</option>
+      <option value="popular">Xem nhiều</option>
+      <option value="bestseller">Mua nhiều</option>
+      <option value="price-asc">Giá tăng dần</option>
+      <option value="price-desc">Giá giảm dần</option>
+    </select>
+    <div class="view-toggle">
+      <button id="btn-list" onclick="setView('list')"><i class="fas fa-th"></i></button>
+      <button id="btn-detail" onclick="setView('detail')"><i class="fas fa-list"></i></button>
+    </div>
+  </div>
+</div>
+  <div class="container-wrap">
+    <div class="left">
+      <div id="products" class="products list-view" aria-live="polite">
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP1"><h4>Quần Short Thể Thao</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div><button onclick="addToCart('Quần Short', 299000, 'img/short.png')">Thêm vào giỏ</button></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP2"><h4>Áo Polo Trắng</h4><div><span class="price">399,000đ</span><span class="old-price">520,000đ</span></div><button onclick="addToCart('Quần Short', 299000, 'img/short.png')">Thêm vào giỏ</button></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP3"><h4>Áo Khoác Thể Thao</h4><div><span class="price">549,000đ</span><span class="old-price">650,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP1"><h4>Quần Short Thể Thao</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP2"><h4>Áo Polo Trắng</h4><div><span class="price">399,000đ</span><span class="old-price">520,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP3"><h4>Áo Khoác Thể Thao</h4><div><span class="price">549,000đ</span><span class="old-price">650,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP1"><h4>Quần Short Thể Thao</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP2"><h4>Áo Polo Trắng</h4><div><span class="price">399,000đ</span><span class="old-price">520,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP3"><h4>Áo Khoác Thể Thao</h4><div><span class="price">549,000đ</span><span class="old-price">650,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP1"><h4>Quần Short Thể Thao</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP2"><h4>Áo Polo Trắng</h4><div><span class="price">399,000đ</span><span class="old-price">520,000đ</span></div></div>
+        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP3"><h4>Áo Khoác Thể Thao</h4><div><span class="price">549,000đ</span><span class="old-price">650,000đ</span></div></div>
+        <!-- thêm sản phẩm tương tự -->
+      </div>
+    </div>
+
+    <aside class="right" aria-labelledby="hot-title">
+      <h3 id="hot-title">SẢN PHẨM HOT</h3>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Quần Kaki Slimfit</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Khoác UV</h4><div><span class="price">546,000đ</span><span class="old-price">575,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Polo Nam</h4><div><span class="price">349,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Quần Kaki Slimfit</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Khoác UV</h4><div><span class="price">546,000đ</span><span class="old-price">575,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Polo Nam</h4><div><span class="price">349,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Quần Kaki Slimfit</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Khoác UV</h4><div><span class="price">546,000đ</span><span class="old-price">575,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Polo Nam</h4><div><span class="price">349,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Quần Kaki Slimfit</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Khoác UV</h4><div><span class="price">546,000đ</span><span class="old-price">575,000đ</span></div></div></div>
+      <div class="hot-item"><img src="https://via.placeholder.com/60" alt=""><div><h4>Áo Polo Nam</h4><div><span class="price">349,000đ</span><span class="old-price">425,000đ</span></div></div></div>
+    </aside>
+  </div>
+  <footer class="footer">
+  <div class="footer-container">
+    <!-- Cột 1 -->
+    <div class="footer-col">
+      <h2 class="footer-logo">4MEN</h2>
+      <ul>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Liên hệ</a></li>
+        <li><a href="#">Tuyển dụng</a></li>
+        <li><a href="#">Tin tức</a></li>
+      </ul>
+      <p>Email: info@4menshop.com</p>
+      <p>Hotline: 0868.444.644</p>
+      <div class="subscribe">
+        <input type="email" placeholder="Email của bạn">
+        <button>ĐĂNG KÝ</button>
+      </div>
+    </div>
+
+    <!-- Cột 2 -->
+    <div class="footer-col">
+      <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+      <ul>
+        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+        <li><a href="#">Hướng dẫn chọn size</a></li>
+        <li><a href="#">Câu hỏi thường gặp</a></li>
+        <li><a href="#">Chính sách khách VIP</a></li>
+        <li><a href="#">Thanh toán - Giao hàng</a></li>
+        <li><a href="#">Chính sách đổi hàng</a></li>
+        <li><a href="#">Chính sách bảo mật</a></li>
+        <li><a href="#">Chính sách cookie</a></li>
+      </ul>
+    </div>
+
+    <!-- Cột 3 -->
+    <div class="footer-col">
+      <h3>HỆ THỐNG CỬA HÀNG</h3>
+      <img src="https://maps.gstatic.com/tactile/basepage/pegman_sherlock.png" alt="map" class="map">
+      <p><a href="#">Tìm địa chỉ CỬA HÀNG gần bạn »</a></p>
+    </div>
+
+    <!-- Cột 4 -->
+    <div class="footer-col">
+      <h3>KẾT NỐI VỚI 4MEN</h3>
+      <div class="social">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="fb"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="ig"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="yt"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bản quyền -->
+  <div class="footer-bottom">
+    <p>Copyright 2025 - Thiết kế và phát triển bởi 4MEN SHOP All rights reserved</p>
+    <p class="highlight">Nhãn hiệu "4MEN" đã được đăng ký độc quyền tại Cục sở hữu trí tuệ Việt Nam</p>
+  </div>
+</footer>
+</body>
+</html>

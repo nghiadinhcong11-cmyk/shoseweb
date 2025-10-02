@@ -9,43 +9,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <style>
-.sort-bar { display: flex; justify-content: space-between; align-items: center; margin: 30px 0; }
-.sort-bar h2 { font-size: 22px; font-weight: 700; color: #222; }
-.sort-options { display: flex; align-items: center; gap: 15px; }
-.sort-options label { font-weight: 600; color: #333; }
-.sort-options select { padding: 6px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; cursor: pointer; }
-.sort-options select:focus { border-color: #c00; outline: none; }
-   .view-toggle { display:flex; gap:8px; }
-    .view-toggle button { border:1px solid #ccc; background:#f5f5f5; padding:6px 8px; border-radius:4px; cursor:pointer; font-size:16px; color:#333; }
-    .view-toggle button.active { background:#c00; color:#fff; border-color:#c00; }
- /* content area */
-    .container-wrap { display:flex; gap:20px; max-width:1200px; margin:24px auto; padding:0 20px; width:calc(100% - 40px); box-sizing:border-box; }
-    .left { flex:3; }
-    .right { flex:1; }
-    /* product grid / list */
-    .products { display:grid; gap:20px; }
-    .list-view { grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); }
-    .detail-view { grid-template-columns:1fr; }
-    .product { background:#fff; border:1px solid #eee; border-radius:6px; padding:12px; display:flex; flex-direction:column; align-items:center; text-align:center; }
-    .product img { width:100%; height:200px; object-fit:cover; border-radius:5px; }
-    .product h4 { margin:10px 0 6px; font-size:15px; }
-    .price { color:red; font-weight:700; margin-right:8px; }
-    .old-price { color:#888; text-decoration:line-through; font-size:13px; }
-    /* Detail view */
-    .detail-view { grid-template-columns: 1fr; }
-    .detail-view .item { display: flex; align-items: center; text-align: left; }
-    .detail-view img { width: 120px; height: auto; margin-right: 15px; }
+.actions{display:flex;gap:10px;margin-top:10px}
+.actions button,.actions .btn-detail{padding:10px 15px;border:none;border-radius:6px;font-size:14px;cursor:pointer;text-decoration:none;transition:.3s}
+.actions button{background:#333;color:#fff}
+.actions button:hover{background:#555}
+.actions .btn-detail{background:#f5f5f5;color:#333;border:1px solid #ccc;display:inline-block;text-align:center}
+.actions .btn-detail:hover{background:#e6e6e6;border-color:#999}
 
-    /* --- RIGHT (SẢN PHẨM HOT) --- */
-    .right { flex: 1; }
-    .right h3 { font-size: 18px; margin-bottom: 10px; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
-    .hot-item { display: flex; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-    .hot-item img { width: 60px; height: 60px; object-fit: cover; margin-right: 10px; border: 1px solid #ddd; }
-    .hot-item h4 { font-size: 14px; margin: 0 0 5px; }
-    .hot-item .price { color: red; font-weight: bold; }
-    .hot-item .old-price { text-decoration: line-through; color: #888; font-size: 12px; }
-     /* small helpers */
-    @media (max-width:900px) { .container-wrap { flex-direction:column; } .right { order:2; } .left { order:1; } .detail-view .product { flex-direction:column; align-items:center; text-align:center; } .detail-view .product img { margin:0 0 10px 0; } }
 </style>
 <body>
   <!-- Thanh trên cùng -->
@@ -54,7 +24,7 @@
       ☎ Hotline: <span class="hotline">0868.444.644</span>
     </div>
     <div>
-      <a href="SIZE.HTML">Cách chọn Size</a>
+      <a href="#">Cách chọn Size</a>
       <a href="intro.html">Giới thiệu</a>
     </div>
   </div>
@@ -68,7 +38,7 @@
   </a>
 </div>
 
-      <!-- Menu điều hướng -->
+     <!-- Menu điều hướng -->
     <nav class="menu">
       <a href="product.html">SẢN PHẨM <span class="hot">Hot</span></a>
       <div class="dropdown">
@@ -94,6 +64,7 @@
     <a href="item.html">PHỤ KIỆN</a>
     <a href="new.html">TIN TỨC <span class="hot">Hot</span></a>
     </nav>
+
     <!-- Icon -->
     <div class="icons">
       <button>🔍</button>
@@ -104,10 +75,10 @@
   <!-- Breadcrumb -->
 <nav class="breadcrumb">
   <a href="index.html">Thời trang nam</a> /
-  <span>THỜI TRANG MỚI NHẤT</span>
+  <span>Giày chạy bộ</span>
 </nav>
 <div class="sort-bar">
-  <h2>THỜI TRANG MỚI NHẤT</h2>
+  <h2>GIÀY CHẠY BỘ NAM</h2>
   <div class="sort-options">
     <label for="sort-select">Sắp xếp:</label>
     <select id="sort-select">
@@ -127,7 +98,7 @@
   <div class="container-wrap">
     <div class="left">
       <div id="products" class="products list-view" aria-live="polite">
-        <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP1"><h4>Quần Short Thể Thao</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div><button onclick="addToCart('Quần Short', 299000, 'img/short.png')">Thêm vào giỏ</button></div>
+        <div class="product"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="SP1"><h4>Nike Vomero</h4><div><span class="price">3,492,000đ</span></div><div class="actions"><button onclick="addToCart('Nike Vomero', 3492000, 'img/nike_vomero.png')">Thêm vào giỏ</button><a href="runmen1.html" class="btn-detail">Xem chi tiết</a></div></div>
         <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP2"><h4>Áo Polo Trắng</h4><div><span class="price">399,000đ</span><span class="old-price">520,000đ</span></div><button onclick="addToCart('Quần Short', 299000, 'img/short.png')">Thêm vào giỏ</button></div>
         <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP3"><h4>Áo Khoác Thể Thao</h4><div><span class="price">549,000đ</span><span class="old-price">650,000đ</span></div></div>
         <div class="product"><img src="https://via.placeholder.com/400x400" alt="SP1"><h4>Quần Short Thể Thao</h4><div><span class="price">299,000đ</span><span class="old-price">425,000đ</span></div></div>
@@ -201,7 +172,7 @@
     </div>
 
     <!-- Cột 4 -->
-    <div class="footer-col">
+    <div class="footer-col">  
       <h3>KẾT NỐI VỚI 4MEN</h3>
       <div class="social">
         <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="fb"></a>
@@ -217,40 +188,5 @@
     <p class="highlight">Nhãn hiệu "4MEN" đã được đăng ký độc quyền tại Cục sở hữu trí tuệ Việt Nam</p>
   </div>
 </footer>
- <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const products = document.getElementById('products');
-      const btnList = document.getElementById('btn-list');
-      const btnDetail = document.getElementById('btn-detail');
-
-      // khởi tạo trạng thái ban đầu
-      btnList.classList.add('active'); btnList.setAttribute('aria-pressed','true');
-
-      btnList.addEventListener('click', () => {
-        products.classList.remove('detail-view'); products.classList.add('list-view');
-        btnList.classList.add('active'); btnDetail.classList.remove('active');
-        btnList.setAttribute('aria-pressed','true'); btnDetail.setAttribute('aria-pressed','false');
-      });
-
-      btnDetail.addEventListener('click', () => {
-        products.classList.remove('list-view'); products.classList.add('detail-view');
-        btnDetail.classList.add('active'); btnList.classList.remove('active');
-        btnDetail.setAttribute('aria-pressed','true'); btnList.setAttribute('aria-pressed','false');
-      });
-    });
-    function addToCart(name, price, img) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let item = cart.find(p => p.name === name);
-  
-  if (item) {
-    item.qty++;
-  } else {
-    cart.push({ name, price, img, qty: 1 });
-  }
-  
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Đã thêm vào giỏ!");
-}
-  </script>
 </body>
 </html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Header 4Men</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+.container {max-width:1200px; margin:40px auto; display:flex; gap:40px; padding:20px;}
+.product-images {flex:1;}
+.product-images .main-img {width:100%; border:1px solid #ddd;}
+.thumbs {display:flex; gap:10px; margin-top:10px;}
+.thumbs img {width:80px; border:1px solid #ddd; cursor:pointer;}
+.product-info {flex:1;}
+.product-info h1 {font-size:22px; margin-bottom:10px;}
+.rating {color:#f39c12; font-size:14px; margin-bottom:10px;}
+.price {font-size:20px; color:#c00; margin-bottom:20px; font-weight:bold;}
+.form-group {margin-bottom:15px;}
+select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1px solid #ddd; border-radius:4px;}
+.btn {display:block; width:100%; padding:12px; text-align:center; font-weight:bold; border-radius:4px; margin-top:10px; cursor:pointer;}
+.btn-buy {background:#c00; color:#fff; border:none;}
+.btn-buy:hover {background:#a00;}
+.btn-cart {background:none; color:#c00; border:none;}
+.btn-cart:hover {text-decoration:underline;}
+.features {margin-top:20px;}
+.features h3 {font-size:16px; margin-bottom:10px;}
+.social {margin-top:15px;}
+.social button {border:none; padding:6px 12px; margin-right:5px; border-radius:4px; cursor:pointer;}
+.social .like {background:#1877f2; color:#fff;}
+.social .share {background:#1da1f2; color:#fff;}
+
+.product-list {display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;}
+.product-card {background:#fff; border-radius:8px; overflow:hidden; transition:0.3s; text-align:center;}
+.product-card:hover {transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+.product-card img {width:100%; height:auto;}
+.product-info {padding:15px;}
+.product-info h3 {font-size:18px; margin:10px 0 5px;}
+.product-info p {font-size:14px; color:#777; margin:0 0 10px;}
+.price {font-size:18px; font-weight:bold; color:#c00;}
+#btn-review {margin-top:15px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:14px;transition:0.2s;}
+#btn-review:hover {background:#0056b3;}
+#review-form {background:#f9f9f9;border:1px solid #ddd;padding:15px;border-radius:6px;margin-top:10px;box-shadow:0 2px 4px rgba(0,0,0,0.05);}
+#review-form label {font-weight:bold;display:block;margin-bottom:5px;}
+#review-stars {padding:6px;border:1px solid #ccc;border-radius:4px;}
+#review-text {margin-top:8px;padding:10px;border:1px solid #ccc;border-radius:6px;resize:vertical;}
+#submit-review {margin-top:10px;padding:8px 15px;background:#28a745;color:#fff;border:none;border-radius:6px;cursor:pointer;transition:0.2s;}
+#submit-review:hover {background:#1e7e34;}
+.rating {font-size:15px;margin:8px 0;color:#ff9800;font-weight:bold;}
+#reviews-list {margin-top:15px;padding:10px;background:#f9f9f9;border:1px solid #ddd;border-radius:6px;}
+.review-item {border-bottom:1px solid #eee;padding:8px 0;}
+.review-item:last-child {border-bottom:none;}
+.review-stars {color:#ff9800;font-size:14px;margin-bottom:5px;}
+.review-text {margin:0;font-size:14px;color:#333;}
+
+</style>
+<body>
+  <!-- Thanh trên cùng -->
+  <div class="top-bar">
+    <div>
+      ☎ Hotline: <span class="hotline">0868.444.644</span>
+    </div>
+    <div>
+      <a href="#">Cách chọn Size</a>
+      <a href="intro.html">Giới thiệu</a>
+    </div>
+  </div>
+
+  <!-- Header chính -->
+  <div class="header">
+    <!-- Logo -->
+   <div class="logo">
+  <a href="index.html">
+    <img src="https://4menshop.com/images/logo.png" alt="4Men Logo">
+  </a>
+</div>
+
+     <!-- Menu điều hướng -->
+    <nav class="menu">
+      <a href="product.html">SẢN PHẨM <span class="hot">Hot</span></a>
+      <div class="dropdown">
+      <a href="men.html">GIÀY NAM</a>
+      <div class="dropdown-content">
+        <a href="runningmen.html">Chạy bộ</a>
+        <a href="#">Đá bóng</a>
+        <a href="#">Bóng rổ</a>
+        <a href="#">Gym</a>
+        <a href="#">Trượt ván</a>
+      </div>
+    </div>
+      <div class="dropdown">
+      <a href="women.html">GIÀY NỮ</a>
+      <div class="dropdown-content">
+        <a href="#">Chạy bộ</a>
+        <a href="#">Đá bóng</a>
+        <a href="#">Bóng rổ</a>
+        <a href="#">Gym</a>
+        <a href="#">Trượt ván</a>
+      </div>
+    </div>
+    <a href="item.html">PHỤ KIỆN</a>
+    <a href="new.html">TIN TỨC <span class="hot">Hot</span></a>
+    </nav>
+
+    <!-- Icon -->
+    <div class="icons">
+      <button>🔍</button>
+      <button  onclick="location.href='cart.html'">🛒</button>
+      <button onclick="location.href='login.html'">👤</button>
+    </div>
+  </div>
+  <!-- Breadcrumb -->
+<nav class="breadcrumb">
+  <a href="index.html">Thời trang nam</a> /
+  <span>Giày chạy bộ</span> /
+  <span>Nico Vomero</span>
+</nav>
+<div class="sort-bar">
+  <h2>GIÀY CHẠY BỘ NAM</h2>
+</div>
+  
+<div class="container">
+    <!-- Ảnh sản phẩm -->
+    <div class="product-images">
+      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="Nike Vomero" class="main-img">
+      <div class="thumbs">
+        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="thumb1">
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/696e1013-1452-4538-9460-15a012ffc748/NIKE+VOMERO+PLUS.png" alt="thumb2">
+        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="thumb3">
+      </div>
+    </div>
+
+    <!-- Thông tin sản phẩm -->
+    <div class="product-info">
+      <h1>ÁO SƠ MI TAY NGẮN SỌC CHÉO THÊU CHỮ 4M FORM REGULAR SM179</h1>
+      <div id="rating-summary" class="rating">⭐⭐⭐⭐⭐ (42 đánh giá / 50 lượt mua)</div>
+      <div class="price">315,000 đ</div>
+
+      <div class="form-group">
+        <label for="size">SIZE*</label>
+        <select id="size">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">SỐ LƯỢNG*</label>
+        <input type="number" id="quantity" value="1" min="1">
+      </div>
+      <button class="btn btn-buy">🛒 ĐĂNG KÝ MUA</button>
+      <button class="btn btn-cart">+ Thêm vào giỏ hàng</button>
+
+      <div class="features">
+        <h3>Điểm nổi bật</h3>
+        <p>- Chất liệu cotton cao cấp</p>
+        <p>- Form regular dễ mặc</p>
+      </div>
+
+      <div class="social">
+        <button class="like">👍 Thích 0</button>
+        <button class="share">🔗 Chia sẻ</button>
+      </div>
+       <!-- Nút mở form đánh giá -->
+  <button id="btn-review">✍️ Viết đánh giá</button>
+   <!-- Form đánh giá -->
+  <div id="review-form" style="display:none; margin-top:10px;">
+    <label>Chọn số sao:</label>
+    <select id="review-stars">
+      <option value="5">⭐⭐⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="1">⭐</option>
+    </select>
+    <br><br>
+    <textarea id="review-text" placeholder="Viết cảm nhận của bạn..." rows="3" style="width:100%;"></textarea>
+    <br>
+    <button id="submit-review">Gửi đánh giá</button>
+  </div>
+  <!-- Danh sách đánh giá -->
+<div id="reviews-list" style="margin-top:20px;">
+  <h3>Đánh giá của khách hàng</h3>
+</div>
+    </div>
+  </div>
+   <div class="product-list">
+    <h1>Gợi ý</h1>
+    <!-- SP1 -->
+    <div class="product-card">
+      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+      <div class="product-info">
+        <h3>Nike Zoom Fly 6</h3>
+        <p>Men's Road Racing Shoes</p>
+        <div>
+          <span class="price">3,999,199₫</span>
+          <span class="old-price">4,999,000₫</span>
+        </div>
+      </div>
+    </div>
+    <!-- SP2 -->
+    <div class="product-card">
+      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+      <div class="product-info">
+        <h3>Nike Zoom Fly 6</h3>
+        <p>Men's Road Racing Shoes</p>
+        <div>
+          <span class="price">3,999,199₫</span>
+          <span class="old-price">4,999,000₫</span>
+        </div>
+      </div>
+    </div>
+   </div>
+  <footer class="footer">
+  <div class="footer-container">
+    <!-- Cột 1 -->
+    <div class="footer-col">
+      <h2 class="footer-logo">4MEN</h2>
+      <ul>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Liên hệ</a></li>
+        <li><a href="#">Tuyển dụng</a></li>
+        <li><a href="#">Tin tức</a></li>
+      </ul>
+      <p>Email: info@4menshop.com</p>
+      <p>Hotline: 0868.444.644</p>
+      <div class="subscribe">
+        <input type="email" placeholder="Email của bạn">
+        <button>ĐĂNG KÝ</button>
+      </div>
+    </div>
+
+    <!-- Cột 2 -->
+    <div class="footer-col">
+      <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+      <ul>
+        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+        <li><a href="#">Hướng dẫn chọn size</a></li>
+        <li><a href="#">Câu hỏi thường gặp</a></li>
+        <li><a href="#">Chính sách khách VIP</a></li>
+        <li><a href="#">Thanh toán - Giao hàng</a></li>
+        <li><a href="#">Chính sách đổi hàng</a></li>
+        <li><a href="#">Chính sách bảo mật</a></li>
+        <li><a href="#">Chính sách cookie</a></li>
+      </ul>
+    </div>
+
+    <!-- Cột 3 -->
+    <div class="footer-col">
+      <h3>HỆ THỐNG CỬA HÀNG</h3>
+      <img src="https://maps.gstatic.com/tactile/basepage/pegman_sherlock.png" alt="map" class="map">
+      <p><a href="#">Tìm địa chỉ CỬA HÀNG gần bạn »</a></p>
+    </div>
+
+    <!-- Cột 4 -->
+    <div class="footer-col">
+      <h3>KẾT NỐI VỚI 4MEN</h3>
+      <div class="social">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="fb"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="ig"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="yt"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bản quyền -->
+  <div class="footer-bottom">
+    <p>Copyright 2025 - Thiết kế và phát triển bởi 4MEN SHOP All rights reserved</p>
+    <p class="highlight">Nhãn hiệu "4MEN" đã được đăng ký độc quyền tại Cục sở hữu trí tuệ Việt Nam</p>
+  </div>
+</footer>
+<script>
+  // Biến lưu tổng sao và số lượt đánh giá
+  let totalStars = 42 * 5; // giả sử ban đầu toàn 5 sao
+  let reviewCount = 42;
+
+  const btnReview = document.getElementById("btn-review");
+  const reviewForm = document.getElementById("review-form");
+  const submitReview = document.getElementById("submit-review");
+  const ratingSummary = document.getElementById("rating-summary");
+
+  // Mở/đóng form đánh giá
+  btnReview.addEventListener("click", () => {
+    reviewForm.style.display = reviewForm.style.display === "none" ? "block" : "none";
+  });
+
+  // Khi gửi đánh giá
+  submitReview.addEventListener("click", () => {
+    const stars = parseInt(document.getElementById("review-stars").value);
+    const text = document.getElementById("review-text").value.trim();
+
+    if (!text) {
+      alert("Vui lòng nhập nội dung đánh giá!");
+      return;
+    }
+
+    // Cập nhật số sao trung bình
+    reviewCount++;
+    totalStars += stars;
+    const avgStars = Math.round(totalStars / reviewCount);
+
+    // Tạo chuỗi sao hiển thị
+    let starsDisplay = "⭐".repeat(avgStars);
+
+    // Cập nhật phần tổng quan đánh giá
+    ratingSummary.innerHTML = `${starsDisplay} (${reviewCount} đánh giá / 50 lượt mua)`;
+
+    // ===== Thêm review mới vào danh sách =====
+    const reviewItem = document.createElement("div");
+    reviewItem.classList.add("review-item");
+
+    const starDiv = document.createElement("div");
+    starDiv.classList.add("review-stars");
+    starDiv.textContent = "⭐".repeat(stars);
+
+    const textP = document.createElement("p");
+    textP.classList.add("review-text");
+    textP.textContent = text;
+
+    reviewItem.appendChild(starDiv);
+    reviewItem.appendChild(textP);
+
+    document.getElementById("reviews-list").appendChild(reviewItem);
+
+    // Reset form
+    document.getElementById("review-stars").value = "5";
+    document.getElementById("review-text").value = "";
+    reviewForm.style.display = "none";
+
+    alert("Cảm ơn bạn đã đánh giá!");
+  });
+</script>
+</body>
+</html>
