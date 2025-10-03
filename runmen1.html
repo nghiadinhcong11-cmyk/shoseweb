@@ -32,9 +32,17 @@ select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1p
 .social .like {background:#1877f2; color:#fff;}
 .social .share {background:#1da1f2; color:#fff;}
 
-.product-list {display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;}
-.product-card {background:#fff; border-radius:8px; overflow:hidden; transition:0.3s; text-align:center;}
-.product-card:hover {transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+.product-list { margin:20px 0; }
+.product-list h1 { font-size:24px; font-weight:bold; margin-bottom:20px; color:#333; border-left:4px solid red; padding-left:10px; }
+.product-row { display:flex; gap:20px; overflow-x:auto; scroll-behavior:smooth; padding-bottom:10px; }
+.product-card { flex:0 0 220px; position:relative; background:#fff; border:1px solid #eee; border-radius:12px; padding:15px; text-align:center; overflow:hidden; transition:transform 0.3s,box-shadow 0.3s; }
+.product-card:hover { transform:translateY(-5px); box-shadow:0 8px 16px rgba(0,0,0,0.1); }
+.product-card img { width:100%; border-radius:8px; margin-bottom:12px; }
+.overlay { position:absolute; inset:0; background:rgba(255,255,255,0.8); display:flex; align-items:center; justify-content:center; opacity:0; transition:0.3s; }
+.product-card:hover .overlay { opacity:1; }
+.cart-btn { width:60px; height:60px; border:none; border-radius:50%; background:red; color:#fff; font-size:22px; cursor:pointer; transition:transform 0.3s; }
+.cart-btn:hover { transform:scale(1.1); }
+.product-row::-webkit-scrollbar { display:none; } /* ẩn thanh cuộn ngang */
 .product-card img {width:100%; height:auto;}
 .product-info {padding:15px;}
 .product-info h3 {font-size:18px; margin:10px 0 5px;}
@@ -54,6 +62,13 @@ select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1p
 .review-item:last-child {border-bottom:none;}
 .review-stars {color:#ff9800;font-size:14px;margin-bottom:5px;}
 .review-text {margin:0;font-size:14px;color:#333;}
+.product-images { max-width: 400px; }
+.main-img { width: 100%; height: 400px; object-fit: contain; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 10px; background: #fff; transition: opacity 0.3s ease; }
+.main-img.fade { opacity: 0; }
+.thumbs { display: flex; gap: 10px; }
+.thumbs img { width: 80px; height: 80px; object-fit: cover; cursor: pointer; border: 2px solid transparent; border-radius: 6px; transition: border 0.3s; }
+.thumbs img:hover { border: 2px solid #aaa; }
+.thumbs img.active { border: 2px solid #000; }
 
 </style>
 <body>
@@ -122,15 +137,17 @@ select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1p
 </div>
   
 <div class="container">
-    <!-- Ảnh sản phẩm -->
-    <div class="product-images">
-      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="Nike Vomero" class="main-img">
-      <div class="thumbs">
-        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="thumb1">
-        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/696e1013-1452-4538-9460-15a012ffc748/NIKE+VOMERO+PLUS.png" alt="thumb2">
-        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="thumb3">
-      </div>
-    </div>
+   <!-- Ảnh sản phẩm -->
+<div class="product-images">
+  <img 
+    src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="Nike Vomero" class="main-img" id="mainImage">
+
+  <div class="thumbs">
+    <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="thumb1" class="thumb active">
+    <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/696e1013-1452-4538-9460-15a012ffc748/NIKE+VOMERO+PLUS.png" alt="thumb2" class="thumb">
+    <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6c9bee45-9b41-4b38-997a-1c056e2797db/NIKE+VOMERO+PREMIUM.png" alt="thumb3" class="thumb">
+  </div>
+</div>
 
     <!-- Thông tin sản phẩm -->
     <div class="product-info">
@@ -190,30 +207,71 @@ select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1p
   </div>
    <div class="product-list">
     <h1>Gợi ý</h1>
-    <!-- SP1 -->
-    <div class="product-card">
-      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
-      <div class="product-info">
-        <h3>Nike Zoom Fly 6</h3>
-        <p>Men's Road Racing Shoes</p>
-        <div>
-          <span class="price">3,999,199₫</span>
-          <span class="old-price">4,999,000₫</span>
-        </div>
-      </div>
-    </div>
-    <!-- SP2 -->
-    <div class="product-card">
-      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
-      <div class="product-info">
-        <h3>Nike Zoom Fly 6</h3>
-        <p>Men's Road Racing Shoes</p>
-        <div>
-          <span class="price">3,999,199₫</span>
-          <span class="old-price">4,999,000₫</span>
-        </div>
-      </div>
-    </div>
+   <div class="product-row">
+     <div class="product-card">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+  <div class="product-info">
+    <h3>Áo Polo</h3>
+    <p>Men's Polo Shirt</p>
+    <div><span class="price">399,000₫</span></div>
+  </div>
+  <div class="overlay"><button class="cart-btn">🛒</button></div>
+</div>
+     <div class="product-card">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+  <div class="product-info">
+    <h3>Áo Polo</h3>
+    <p>Men's Polo Shirt</p>
+    <div><span class="price">399,000₫</span></div>
+  </div>
+  <div class="overlay"><button class="cart-btn">🛒</button></div>
+</div>
+     <div class="product-card">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+  <div class="product-info">
+    <h3>Áo Polo</h3>
+    <p>Men's Polo Shirt</p>
+    <div><span class="price">399,000₫</span></div>
+  </div>
+  <div class="overlay"><button class="cart-btn">🛒</button></div>
+</div>
+     <div class="product-card">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+  <div class="product-info">
+    <h3>Áo Polo</h3>
+    <p>Men's Polo Shirt</p>
+    <div><span class="price">399,000₫</span></div>
+  </div>
+  <div class="overlay"><button class="cart-btn">🛒</button></div>
+</div>
+     <div class="product-card">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+  <div class="product-info">
+    <h3>Áo Polo</h3>
+    <p>Men's Polo Shirt</p>
+    <div><span class="price">399,000₫</span></div>
+  </div>
+  <div class="overlay"><button class="cart-btn">🛒</button></div>
+</div>
+     <div class="product-card">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+  <div class="product-info">
+    <h3>Áo Polo</h3>
+    <p>Men's Polo Shirt</p>
+    <div><span class="price">399,000₫</span></div>
+  </div>
+  <div class="overlay"><button class="cart-btn">🛒</button></div>
+</div>
+     <div class="product-card">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6">
+  <div class="product-info">
+    <h3>Áo Polo</h3>
+    <p>Men's Polo Shirt</p>
+    <div><span class="price">399,000₫</span></div>
+  </div>
+  <div class="overlay"><button class="cart-btn">🛒</button></div>
+</div>
+   </div>
    </div>
   <footer class="footer">
   <div class="footer-container">
@@ -332,6 +390,23 @@ select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1p
     reviewForm.style.display = "none";
 
     alert("Cảm ơn bạn đã đánh giá!");
+  });
+   const mainImage = document.getElementById('mainImage');
+  const thumbs = document.querySelectorAll('.thumb');
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', function () {
+      // reset highlight
+      thumbs.forEach(img => img.classList.remove('active'));
+      this.classList.add('active');
+
+      // hiệu ứng fade
+      mainImage.classList.add('fade');
+      setTimeout(() => {
+        mainImage.src = this.src;
+        mainImage.classList.remove('fade');
+      }, 200); // đổi ảnh sau 0.2s
+    });
   });
 </script>
 </body>
