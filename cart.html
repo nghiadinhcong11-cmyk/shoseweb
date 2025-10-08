@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Header 4Men</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* ===== CART ITEMS ===== */
+#cart-items { max-width: 1200px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-family: 'Roboto', sans-serif; }
+.cart-item { display: grid; grid-template-columns: 80px 1fr 80px 120px; align-items: center; gap: 15px; padding: 15px 0; border-bottom: 1px solid #eee; }
+.cart-item img { width: 70px; height: auto; border-radius: 6px; border: 1px solid #ddd; }
+.cart-item span { font-size: 15px; color: #333; }
+.cart-item span:nth-child(3) { text-align: center; }
+.cart-item span:last-child { font-weight: 600; color: #e60000; }
+
+/* ===== CART SUMMARY ===== */
+.cart-summary { max-width: 1200px; margin: 20px auto; padding: 20px; text-align: right; background: #fafafa; border-radius: 8px; border: 1px solid #eee; font-family: 'Roboto', sans-serif; }
+.cart-summary p { margin: 8px 0; font-size: 15px; }
+.cart-summary span { font-weight: bold; color: #e60000; font-size: 16px; }
+.cart-summary b { font-size: 18px; color: #222; }
+
+</style>
+<body>
+  <!-- Thanh trên cùng -->
+  <div class="top-bar">
+    <div>
+      ☎ Hotline: <span class="hotline">0868.444.644</span>
+    </div>
+    <div>
+      <a href="#">Cách chọn Size</a>
+      <a href="intro.html">Giới thiệu</a>
+    </div>
+  </div>
+
+  <!-- Header chính -->
+  <div class="header">
+    <!-- Logo -->
+   <div class="logo">
+  <a href="index.html">
+    <img src="https://4menshop.com/images/logo.png" alt="4Men Logo">
+  </a>
+</div>
+
+        <!-- Menu điều hướng -->
+    <nav class="menu">
+      <a href="../product.html">SẢN PHẨM <span class="hot">Hot</span></a>
+      <div class="dropdown">
+      <a href="../men.html">GIÀY NAM</a>
+      <div class="dropdown-content">
+        <a href="/menshose/run.html">Chạy bộ</a>
+        <a href="/menshose/football.html">Đá bóng</a>
+        <a href="/menshose/basket.html">Bóng rổ</a>
+        <a href="/menshose/gym.html">Gym</a>
+        <a href="/menshose/skateboard.html">Trượt ván</a>
+      </div>
+    </div>
+      <div class="dropdown">
+      <a href="../women.html">GIÀY NỮ</a>
+      <div class="dropdown-content">
+        <a href="/womenshose/run.html">Chạy bộ</a>
+        <a href="/womenshose/football.html">Đá bóng</a>
+        <a href="/womenshose/basket.html">Bóng rổ</a>
+        <a href="/womenshose/gym.html">Gym</a>
+        <a href="/womenshose/skateboard.html">Trượt ván</a>
+      </div>
+    </div>
+    <a href="../item.html">PHỤ KIỆN</a>
+    <a href="../new.html">TIN TỨC <span class="hot">Hot</span></a>
+    </nav>
+
+    <!-- Icon -->
+     <div class="icons">
+      <button>🔍</button>
+      <button  onclick="location.href='cart.html'">🛒</button>
+      <button onclick="location.href='login.html'">👤</button>
+    </div>
+  </div>
+  <!-- Breadcrumb -->
+<nav class="breadcrumb">
+  <a href="index.html">Thời trang nam</a> /
+  <span>Giỏ hàng</span>
+</nav>
+
+<div id="cart-items"></div>
+<div class="cart-summary">
+  <p>Tạm tính: <span id="subtotal">0</span> đ</p>
+  <p>Giảm giá: 0 đ</p>
+  <p><b>Tổng tiền: <span id="total">0</span> đ</b></p>
+</div>
+
+<script>
+function loadCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartItems = document.getElementById("cart-items");
+  let subtotal = 0;
+  cartItems.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Chưa có sản phẩm nào</p>";
+  } else {
+    cart.forEach(item => {
+      subtotal += item.price * item.qty;
+      cartItems.innerHTML += `
+        <div class="cart-item">
+          <img src="${item.img}" width="60">
+          <span>${item.name}</span>
+          <span>${item.qty}</span>
+          <span>${(item.price * item.qty).toLocaleString()} đ</span>
+        </div>`;
+    });
+  }
+
+  document.getElementById("subtotal").textContent = subtotal.toLocaleString();
+  document.getElementById("total").textContent = subtotal.toLocaleString();
+}
+
+window.onload = loadCart;
+</script>
+
+
+
+</body>
+</html>
