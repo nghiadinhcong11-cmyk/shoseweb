@@ -4,7 +4,7 @@ body { margin: 0; font-family: Arial, sans-serif; justify-content: center;paddin
 /* Thanh trên cùng */
 .top-bar { background: #2e2e2e; color: #ccc; font-size: 14px; display: flex; justify-content: space-between; padding: 5px 50px; align-items: center; }
 .top-bar .hotline { color: #9ad1f5; }
-.top-bar a { color: #ccc; text-decoration: none; margin-left: 20px; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+.top-bar a { color: #ccc; text-decoration: none; margin-left: 20px; font-family: "Helvetica Now Text",Helvetica,Arial,sans-serif; font-size: small; }
 .top-bar a:hover { color: #fff; }
 
 /* Header chính */
@@ -13,10 +13,9 @@ body { margin: 0; font-family: Arial, sans-serif; justify-content: center;paddin
 
 /* Menu */
 .menu { display: flex; gap: 30px; align-items: center; }
-.menu a { text-decoration: none; color: #333; font-weight: 500; position: relative; font-family: Arial, Helvetica, sans-serif; font-size: small;}
-
+.menu a { text-decoration: none; color: #333; position: relative; font-family: "Helvetica Now Text",Helvetica,Arial,sans-serif; font-size: 15px; font-weight: 500;}
+   
 /* Label Hot */
-.menu a .hot { background: #b91c1c; color: white; font-size: 11px; padding: 1px 4px; border-radius: 2px; position: absolute; top: -12px; right: -20px; }
 .dropdown{position:relative;display:inline-block}
 .dropdown-content{display:none;position:absolute;top:100%;left:0;min-width:220px;background:#fff;box-shadow:0 4px 8px rgba(0,0,0,.1);z-index:1000}
 .dropdown-content a{display:block;padding:10px;color:#333;text-decoration:none}
@@ -134,7 +133,7 @@ select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1p
 .cart-btn:hover { transform:scale(1.1); }
 .product-row::-webkit-scrollbar { display:none; } /* ẩn thanh cuộn ngang */
 .product-card img {width:100%; height:auto;}
-.product-info {padding:15px;}
+
 .product-info h3 {font-size:18px; margin:10px 0 5px;}
 .product-info p {font-size:14px; color:#777; margin:0 0 10px;}
 .price {font-size:18px; font-weight:bold; color:#c00;}
@@ -153,9 +152,10 @@ select, input[type="number"] {width:100%; padding:8px; font-size:14px; border:1p
 .review-stars {color:#ff9800;font-size:14px;margin-bottom:5px;}
 .review-text {margin:0;font-size:14px;color:#333;}
 .product-images { max-width: 400px; }
-.main-img { width: 100%; height: 400px; object-fit: contain; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 10px; background: #fff; transition: opacity 0.3s ease; }
+.main-img { width: 100%; height: 400px; object-fit: cover; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 10px; background: #fff; transition: opacity 0.3s ease; }
 .main-img.fade { opacity: 0; }
 .thumbs { display: flex; gap: 10px; }
 .thumbs img { width: 80px; height: 80px; object-fit: cover; cursor: pointer; border: 2px solid transparent; border-radius: 6px; transition: border 0.3s; }
 .thumbs img:hover { border: 2px solid #aaa; }
 .thumbs img.active { border: 2px solid #000; }
+

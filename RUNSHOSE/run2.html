@@ -47,36 +47,33 @@ select, input[type="number"] { padding:8px; border:1px solid #ccc; border-radius
 .btn-buy { background:#222; color:#fff; }
 .btn-cart { background:#f0f0f0; color:#222; border:1px solid #ccc; }
 .btn:hover { opacity:0.9; }
-
-
-
-
+.container { margin-top: 20px; }
+.breadcrumb { margin-bottom: 10px; }
+.product-card { position:relative; width:260px; background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.3s ease, box-shadow 0.3s ease; }
+.product-card:hover { transform:translateY(-6px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+.product-card img { width:100%; height:250px; object-fit:cover; display:block; transition:transform 0.4s ease; }
+.product-card:hover img { transform:scale(1.05); }
 
 </style>
 <body>
   <!-- Thanh trên cùng -->
   <div class="top-bar">
+    <div>☎ Hotline: <span class="hotline">0868.444.644</span></div>
     <div>
-      ☎ Hotline: <span class="hotline">0868.444.644</span>
-    </div>
-    <div>
-      <a href="#">Cách chọn Size</a>
-      <a href="../intro.html">Giới thiệu</a>
+      <a href="#">Hướng dẫn chọn Size</a>
+      <a href="intro.html">Giới thiệu</a>
     </div>
   </div>
 
   <!-- Header chính -->
   <div class="header">
     <!-- Logo -->
-   <div class="logo">
-  <a href="../index.html">
-    <img src="https://4menshop.com/images/logo.png" alt="4Men Logo">
-  </a>
+<div class="logo">
+  <a href="../index.html"><img src="https://4menshop.com/images/logo.png" alt="4Men Logo"></a>
 </div>
-
      <!-- Menu điều hướng -->
     <nav class="menu">
-      <a href="../product.html">SẢN PHẨM <span class="hot">Hot</span></a>
+      <a href="../product.html">SẢN PHẨM</a>
       <div class="dropdown">
       <a href="../men.html">GIÀY NAM</a>
       <div class="dropdown-content">
@@ -98,7 +95,7 @@ select, input[type="number"] { padding:8px; border:1px solid #ccc; border-radius
       </div>
     </div>
     <a href="../item.html">PHỤ KIỆN</a>
-    <a href="../new.html">TIN TỨC <span class="hot">Hot</span></a>
+    <a href="../new.html">TIN TỨC</a>
     </nav>
 
     <!-- Icon -->
@@ -107,16 +104,14 @@ select, input[type="number"] { padding:8px; border:1px solid #ccc; border-radius
       <button  onclick="location.href='cart.html'">🛒</button>
       <button onclick="location.href='login.html'">👤</button>
     </div>
-  </div>
+</div>
+
   <!-- Breadcrumb -->
 <nav class="breadcrumb">
   <a href="../index.html">Thời trang nam</a> /
-  <span>Giày chạy bộ</span> /
-  <span>Nico Vomero</span>
+  <a href="../menshose/run.html">Giày chạy bộ</a> /
+  <span>Nico Vomero Plus 2</span>
 </nav>
-<div class="sort-bar">
-  <h2>GIÀY CHẠY BỘ NAM</h2>
-</div>
   
 <div class="container">
    <!-- Ảnh sản phẩm -->
@@ -133,7 +128,7 @@ select, input[type="number"] { padding:8px; border:1px solid #ccc; border-radius
 
     <!-- Thông tin sản phẩm -->
     <div class="product-info">
-      <h1>Nike Vomero Plus</h1>
+      <h1>Nike Vomero Plus 2</h1>
       <div class="price">1,999,000 đ</div>
 
       <div class="form-row">
@@ -154,7 +149,7 @@ select, input[type="number"] { padding:8px; border:1px solid #ccc; border-radius
 </div>
 
   <div class="btn-row">
-    <button class="btn btn-buy">🛒 ĐĂNG KÝ MUA</button>
+    <button class="btn btn-buy">🛒 MUA</button>
     <button class="btn btn-cart">+ Thêm vào giỏ hàng</button>
 </div>
 
@@ -194,18 +189,23 @@ select, input[type="number"] { padding:8px; border:1px solid #ccc; border-radius
     </div>
   </div>
    <div class="product-list">
-    <h1>Gợi ý</h1>
+    <h1>SẢN PHẨM TƯƠNG TỰ</h1>
    <div class="product-row">
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/43dceda8-97f2-41c1-9f2c-2f4c55821a18/ZOOM+FLY+6.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><button class="cart-btn">🛒</button></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7c907d55-37aa-43ea-9df8-02969aee5e72/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 1"><div class="product-info"><h3>Nike Vomero Plus 1</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run1.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/94afa340-d211-4894-97ce-bf2ec5da7c54/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 2"><div class="product-info"><h3>Nike Vomero Plus 2</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run2.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/13d60b7e-36db-4c5d-923a-aae071a991d8/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 3"><div class="product-info"><h3>Nike Vomero Plus 3</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run3.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/bd2ae43b-34bd-47ae-9379-d7b4f52fd0e1/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 4"><div class="product-info"><h3>Nike Vomero Plus 4</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run4.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/18471e76-40a7-4f03-9701-47e641fe99b0/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 5"><div class="product-info"><h3>Nike Vomero Plus 5</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run5.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/065839d8-ce6a-4651-a27c-4adef210938f/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 6"><div class="product-info"><h3>Nike Vomero Plus 6</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run6.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7c907d55-37aa-43ea-9df8-02969aee5e72/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 1"><div class="product-info"><h3>Nike Vomero Plus 1</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run1.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/94afa340-d211-4894-97ce-bf2ec5da7c54/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 2"><div class="product-info"><h3>Nike Vomero Plus 2</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run2.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/13d60b7e-36db-4c5d-923a-aae071a991d8/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 3"><div class="product-info"><h3>Nike Vomero Plus 3</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run3.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/bd2ae43b-34bd-47ae-9379-d7b4f52fd0e1/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 4"><div class="product-info"><h3>Nike Vomero Plus 4</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run4.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/18471e76-40a7-4f03-9701-47e641fe99b0/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 5"><div class="product-info"><h3>Nike Vomero Plus 5</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run5.html" class="view-btn">Xem</a></div></div>
+      <div class="product-card"><img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/065839d8-ce6a-4651-a27c-4adef210938f/NIKE+VOMERO+PLUS.png" alt="Nike Vomero Plus 6"><div class="product-info"><h3>Nike Vomero Plus 6</h3><p>Men's Shose</p><div><span class="price">1,999,000₫</span></div></div><div class="overlay"><a href="../RUNSHOSE/run6.html" class="view-btn">Xem</a></div></div>
    </div>
    </div>
+
   <footer class="footer">
   <div class="footer-container">
     <!-- Cột 1 -->

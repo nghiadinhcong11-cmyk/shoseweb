@@ -8,59 +8,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- Slider --- */
-    .slider { position: relative; width: 100%; max-height: 500px; overflow: hidden; }
-    .slides { display: flex; transition: transform 0.8s ease-in-out; width: 300%; }
-    .slides img { width: 100%; height: 500px; object-fit: cover; }
+.slider { position: relative; width: 100%; max-width: 100%; height: 600px; margin: 40px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+.slides { display: flex; height: 100%; transition: transform 0.8s ease-in-out; }
+.slides img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; user-select: none; }
+.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff; border: none; padding: 12px 18px; font-size: 28px; cursor: pointer; border-radius: 50%; transition: 0.3s; z-index: 10; }
+.prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
+.prev { left: 15px; }
+.next { right: 15px; }
+@media (max-width: 768px) { .slider { height: 300px; } .prev, .next { font-size: 22px; padding: 8px 12px; } }
 
-    /* Nút điều hướng */
-    .prev, .next {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(0,0,0,0.5); color: white; border: none;
-      padding: 10px 15px; cursor: pointer; font-size: 20px; border-radius: 50%;
-    }
-    .prev { left: 20px; } .next { right: 20px; }
-    .prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
 
-    /* Dấu chấm indicator */
-    .dots { text-align: center; position: absolute; bottom: 15px; width: 100%; }
-    .dot { height: 12px; width: 12px; margin: 0 5px; display: inline-block;
-      background-color: #bbb; border-radius: 50%; cursor: pointer; }
-    .active { background-color: #333; }
 
-    /* --- Section sản phẩm --- */
-    .section { text-align: center; padding: 40px 20px; }
-    .section h2 { font-size: 24px; margin-bottom: 30px; font-weight: bold; color: #222; }
-    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-      max-width: 1200px; margin: 0 auto; }
-    .product { position: relative; overflow: hidden; border: 1px solid #f0f0f0;
-      border-radius: 6px; background: #fff; }
-    .product img { width: 100%; height: 320px; object-fit: cover; transition: transform 0.3s ease; }
-    .product:hover img { transform: scale(1.05); }
-
-    .discount { position: absolute; top: 10px; right: 10px; background: #333;
-      color: white; font-size: 14px; padding: 6px 10px; border-radius: 50%; }
-    .add-to-cart { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      background: #c00; color: white; font-size: 20px; padding: 20px;
-      border-radius: 50%; display: none; cursor: pointer; transition: 0.3s; }
-    .product:hover .add-to-cart { display: block; }
+    /* --- Section Thời trang hot nhất --- */
+   section { padding: 60px 80px; text-align: center; }
+section h2 { font-size: 26px; margin-bottom: 30px; font-weight: 700; color: #222; }
+.products, .product-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 20px; }
+.product-card, .product-item { position: relative; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: .3s; cursor: pointer; }
+.product-card:hover, .product-item:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+.product-card img, .product-item img { width: 100%; height: 250px; object-fit: cover; }
+.product-info { padding: 12px; text-align: left; }
+.product-info h3 { font-size: 17px; font-weight: 600; }
+.product-info p { font-size: 13px; color: #777; }
+.price { color: #e53935; font-weight: 700; }
+.overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: .3s; }
+.product-card:hover .overlay, .product-item:hover .overlay { opacity: 1; }
+.view-btn { background: #fff; color: #000; padding: 8px 18px; border-radius: 18px; font-weight: 600; text-decoration: none; transition: .3s; }
+.view-btn:hover { background: #000; color: #fff; }
+.fashion-section { background: #f8f8f8; }
+@media (max-width:768px) { section { padding: 40px 20px; } section h2 { font-size: 22px; } }
 
     /* --- Fashion section mới nhất --- */
-    .fashion-section { text-align: center; margin: 40px 0; }
-    .fashion-section h2 { font-size: 22px; font-weight: bold; margin-bottom: 20px; }
-    .product-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-      max-width: 1200px; margin: 0 auto; }
-    .product-item { background: #fff; border-radius: 8px; padding: 10px; position: relative;
-      transition: transform 0.3s ease; }
-    .product-item:hover { transform: translateY(-5px); }
-    .product-img { position: relative; overflow: hidden; }
-    .product-img img { width: 100%; border-radius: 8px; }
-    .cart-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      background: #b40016; color: #fff; font-size: 22px; padding: 15px;
-      border-radius: 50%; opacity: 0; transition: 0.3s; cursor: pointer; }
-    .product-item:hover .cart-btn { opacity: 1; }
-    .discount { position: absolute; top: 10px; right: 10px; background: #333;
-      color: #fff; padding: 5px 10px; border-radius: 50%; font-size: 14px; font-weight: bold; }
+.fashion-section { text-align: center; margin: 50px 0; }
+.fashion-section h2 { font-size: 26px; font-weight: bold; margin-bottom: 30px; color: #222; letter-spacing: 1px; }
+
+.product-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1200px; margin: 0 auto; }
+
+.product-item { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative; transition: transform 0.3s ease; cursor: pointer; }
+.product-item:hover { transform: translateY(-5px); }
+
+.product-item img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.4s ease, opacity 0.4s ease; }
+.product-item:hover img { transform: scale(1.05); opacity: 0.85; }
+
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+.product-item:hover .overlay { opacity: 1; }
+
+.view-btn { background: #b40016; color: #fff; font-weight: 600; padding: 10px 25px; border-radius: 25px; text-decoration: none; transition: background 0.3s ease; }
+.view-btn:hover { background: #8e0012; }
+
+.discount { position: absolute; top: 10px; right: 10px; background: #222; color: #fff; padding: 6px 10px; border-radius: 50%; font-size: 13px; font-weight: bold; }
+
+.product-info { padding: 15px; text-align: left; }
+.product-info h3 { font-size: 17px; font-weight: 600; color: #222; margin-bottom: 4px; }
+.product-info p { font-size: 14px; color: #666; margin-bottom: 8px; }
+.price { font-size: 16px; font-weight: bold; color: #b40016; }
+
+
   </style>
 </head>
 <body>
@@ -68,7 +70,7 @@
   <div class="top-bar">
     <div>☎ Hotline: <span class="hotline">0868.444.644</span></div>
     <div>
-      <a href="#">Cách chọn Size</a>
+      <a href="#">Hướng dẫn chọn Size</a>
       <a href="intro.html">Giới thiệu</a>
     </div>
   </div>
@@ -81,7 +83,7 @@
 </div>
      <!-- Menu điều hướng -->
     <nav class="menu">
-      <a href="../product.html">SẢN PHẨM <span class="hot">Hot</span></a>
+      <a href="../product.html">SẢN PHẨM</a>
       <div class="dropdown">
       <a href="../men.html">GIÀY NAM</a>
       <div class="dropdown-content">
@@ -103,7 +105,7 @@
       </div>
     </div>
     <a href="../item.html">PHỤ KIỆN</a>
-    <a href="../new.html">TIN TỨC <span class="hot">Hot</span></a>
+    <a href="../new.html">TIN TỨC</a>
     </nav>
 
     <!-- Icon -->
@@ -117,129 +119,40 @@
   <!-- Slider -->
   <div class="slider">
     <div class="slides">
-      <img src="https://4menshop.com/images/slider/1.jpg" alt="Slide 1">
-      <img src="https://4menshop.com/images/slider/2.jpg" alt="Slide 2">
-      <img src="https://4menshop.com/images/slider/3.jpg" alt="Slide 3">
+      <img src="https://static.nike.com/a/images/w_2880,h_1410,c_fill,f_auto/a5d2ad04-404d-41b8-a7ef-4de368599f0e/image.jpg" alt="Slide 1">
+      <img src="https://static.nike.com/a/images/w_1920,c_limit/e8ddd953-6e20-40ce-b5c4-812e72d0b931/image.jpg" alt="Slide 2">
+      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e0ff9f1f-cec5-4b15-86d6-127bf1c948f4/AS+M+NK+DF+24.7+PS+6IN+SHORT.png" alt="Slide 3">
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
-    <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
   </div>
 
   <!-- Section 1 -->
   <section class="section">
     <h2>THỜI TRANG HOT NHẤT</h2>
-    <div class="products">
-     <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>
+      <div class="products">
       <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>
-      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>
-      <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>
-
-    </div>
+        <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>
+        <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>
+        <div class="product-card"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>
+      </div>
   </section>
-
   <!-- Section 2 -->
   <section class="fashion-section">
     <h2>THỜI TRANG MỚI NHẤT</h2>
     <div class="product-list">
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/short1.png" alt="Quần short 1">
-          <div class="cart-btn"><i class="fas fa-shopping-cart"></i></div>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/short2.png" alt="Quần short 2">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt1.png" alt="Áo polo trắng">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-img">
-          <img src="images/shirt2.png" alt="Áo polo xanh">
-          <span class="discount">-10%</span>
-        </div>
-      </div>
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
+      <div class="product-item"><img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fd5068d2-a9fe-4075-9555-71ffff53e4b2/NIKE+GATO.png" alt="Nike Zoom Fly 6"><div class="product-info"><h3>Áo Polo</h3><p>Men's Polo Shirt</p><div><span class="price">399,000₫</span></div></div><div class="overlay"><a href="runmen1.html" class="view-btn">Xem</a></div></div>    
     </div>
-  </section>
+    </section>
+
+  <!-- Footer -->
   <footer class="footer">
   <div class="footer-container">
     <!-- Cột 1 -->
@@ -301,23 +214,20 @@
 
 
   <script>
-    const slides = document.querySelector('.slides');
-    const dots = document.querySelectorAll('.dot');
-    let index = 0;
-    const total = dots.length;
+const slides = document.querySelector('.slides');
+const images = document.querySelectorAll('.slides img');
+let index = 0;
 
-    function showSlide(i) {
-      index = (i + total) % total;
-      slides.style.transform = `translateX(${-index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
+function showSlide(i) {
+  index = (i + images.length) % images.length;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}
 
-    document.querySelector('.prev').addEventListener('click', () => showSlide(index - 1));
-    document.querySelector('.next').addEventListener('click', () => showSlide(index + 1));
-    dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
+document.querySelector('.next').onclick = () => showSlide(index + 1);
+document.querySelector('.prev').onclick = () => showSlide(index - 1);
 
-    setInterval(() => showSlide(index + 1), 3000);
+setInterval(() => showSlide(index + 1), 4000);
+
   </script>
 </body>
 </html>
